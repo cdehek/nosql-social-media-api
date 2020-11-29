@@ -13,14 +13,14 @@ const userController = {
 
     // get one user by id
     getUserById({ params }, res) {
-        User.findOne({ _id: params.id })
-          .select('-__v')
-          .then(dbUserData => res.json(dbUserData))
-          .catch(err => {
-            console.log(err);
-            res.sendStatus(400);
-          });
-      },
+      User.findOne({ _id: params.id })
+        .select('-__v')
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+          console.log(err);
+          res.sendStatus(400);
+        });
+    },
     // createUser
     createUser({ body }, res) {
         User.create(body)
@@ -34,8 +34,8 @@ const userController = {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
                     return;
-            }
-            res.json(dbUserData);
+                }
+                res.json(dbUserData);
         })
         .catch(err => res.status(400).json(err));
     },
@@ -46,11 +46,11 @@ const userController = {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
                     return;
-            }
-            res.json(dbUserData);
-        })
-        .catch(err => res.status(400).json(err));
-    }
-  }
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.status(400).json(err));
+      }
+}
 
 module.exports = userController; 

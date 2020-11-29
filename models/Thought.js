@@ -5,18 +5,18 @@ const ThoughtSchema = new Schema(
     {
       thoughtText: {
         type: String,
-        required: "Think harder!",
-        minLength: 1,
-        maxLength: [280, 'Must be 280 characters or less']
+        required: "Thought Required",
+        minlength: 1,
+        maxlength: [280, 'Your thought must be 280 characters or less']
       },
       createdAt: {
         type: Date,
         default: Date.now,
-        get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
       },
       username: {
           type: String,
-          required: 'Enter that Username',
+          required: 'Enter your Username',
 
       },
     //   reactions: []
